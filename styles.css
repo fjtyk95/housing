@@ -91,4 +91,111 @@ button:hover {
         padding: 1rem;
         margin: 1rem;
     }
+}
+
+/* 検索結果セクション */
+.results-container {
+    margin-top: 3rem;
+    padding: 0 2rem;
+}
+
+.results-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+/* 商品カード */
+.furniture-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.furniture-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.furniture-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.furniture-info {
+    padding: 1.5rem;
+}
+
+.furniture-info h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.dimensions {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c5282;
+    margin: 0.5rem 0;
+}
+
+/* タグスタイル */
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.8rem 0;
+}
+
+.tag {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.3rem 0.8rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
+}
+
+/* 詳細ボタン */
+.details-btn {
+    width: 100%;
+    background: #4299e1;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.details-btn:hover {
+    background: #3182ce;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .results-container {
+        padding: 0 1rem;
+    }
+    
+    .results-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
 } 
