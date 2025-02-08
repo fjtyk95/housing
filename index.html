@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スペースフィット - 最適な家具検索</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>スペースフィット</h1>
+        <p>あなたの空きスペースにぴったりな家具を見つけましょう</p>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <form id="space-search">
+                <div class="dimension-inputs">
+                    <div class="input-group">
+                        <label for="width">幅 (cm)</label>
+                        <input type="number" id="width" name="width" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="depth">奥行き (cm)</label>
+                        <input type="number" id="depth" name="depth" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="height">高さ (cm)</label>
+                        <input type="number" id="height" name="height" required>
+                    </div>
+                </div>
+
+                <div class="furniture-type">
+                    <label>家具のタイプ</label>
+                    <select id="furniture-type" name="type">
+                        <option value="all">すべて</option>
+                        <option value="storage">収納家具</option>
+                        <option value="table">テーブル</option>
+                        <option value="sofa">ソファ</option>
+                        <option value="bed">ベッド</option>
+                        <option value="shelf">棚・シェルフ</option>
+                    </select>
+                </div>
+
+                <button type="submit">検索する</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html> 
