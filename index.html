@@ -18,15 +18,15 @@
                 <div class="dimension-inputs">
                     <div class="input-group">
                         <label for="width">幅 (cm)</label>
-                        <input type="number" id="width" name="width" required>
+                        <input type="number" id="width" name="width" min="1" max="1000" step="1" required>
                     </div>
                     <div class="input-group">
                         <label for="depth">奥行き (cm)</label>
-                        <input type="number" id="depth" name="depth" required>
+                        <input type="number" id="depth" name="depth" min="1" max="1000" step="1" required>
                     </div>
                     <div class="input-group">
                         <label for="height">高さ (cm)</label>
-                        <input type="number" id="height" name="height" required>
+                        <input type="number" id="height" name="height" min="1" max="1000" step="1" required>
                     </div>
                 </div>
 
@@ -46,41 +46,15 @@
             </form>
         </div>
 
-        <!-- 検索結果セクションを追加 -->
+        <!-- 検索結果セクション -->
         <div class="results-container">
             <h2>検索結果</h2>
             <div class="results-grid">
-                <!-- 商品カードのテンプレート -->
-                <div class="furniture-card">
-                    <img src="placeholder.jpg" alt="家具の画像">
-                    <div class="furniture-info">
-                        <h3>シンプル収納棚</h3>
-                        <p class="dimensions">幅80cm × 奥行き40cm × 高さ180cm</p>
-                        <p class="price">¥29,800</p>
-                        <div class="tags">
-                            <span class="tag">収納</span>
-                            <span class="tag">木製</span>
-                        </div>
-                        <button class="details-btn">詳細を見る</button>
-                    </div>
-                </div>
-
-                <!-- 追加の商品カードをここに配置（デモ用） -->
-                <div class="furniture-card">
-                    <img src="placeholder.jpg" alt="家具の画像">
-                    <div class="furniture-info">
-                        <h3>コンパクトデスク</h3>
-                        <p class="dimensions">幅100cm × 奥行き45cm × 高さ70cm</p>
-                        <p class="price">¥15,800</p>
-                        <div class="tags">
-                            <span class="tag">テーブル</span>
-                            <span class="tag">デスク</span>
-                        </div>
-                        <button class="details-btn">詳細を見る</button>
-                    </div>
-                </div>
+                <!-- 検索結果がここに動的に追加されます -->
             </div>
         </div>
     </main>
+    <script type="module" src="js/rakuten-api.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html> 
