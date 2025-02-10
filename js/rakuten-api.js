@@ -1,3 +1,5 @@
+import { currentConfig } from './config.js';
+
 // 楽天APIの設定
 const RAKUTEN_CONFIG = {
     APPLICATION_ID: 'e06e2a5afcf14b52139c1fb6c58e9dbc',
@@ -11,7 +13,7 @@ async function searchRakutenProducts(dimensions, furnitureType) {
         const keywords = generateSearchKeywords(dimensions, furnitureType);
         const params = new URLSearchParams({
             applicationId: RAKUTEN_CONFIG.APPLICATION_ID,
-            affiliateId: RAKUTEN_CONFIG.AFFILIATE_ID,
+            // affiliateIdが設定されていない場合は除外
             keyword: keywords,
             genreId: getFurnitureGenreId(furnitureType),
             sort: '+itemPrice',
