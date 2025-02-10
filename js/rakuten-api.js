@@ -13,30 +13,44 @@ async function searchRakutenProducts(dimensions, furnitureType) {
         const keywords = generateSearchKeywords(dimensions, furnitureType);
         const params = new URLSearchParams({
             applicationId: RAKUTEN_CONFIG.APPLICATION_ID,
-            // affiliateIdが設定されていない場合は除外
             keyword: keywords,
             genreId: getFurnitureGenreId(furnitureType),
             sort: '+itemPrice',
-            hits: 30
+            hits: 30,
+            formatVersion: 2,
+            availability: 1,    // 在庫ありの商品のみ
+            field: 1,          // 商品情報フィールドを取得
+            carrier: 0,        // すべてのキャリアで表示
+            imageFlag: 1       // 画像ありの商品のみ
         });
+
+        console.log('API Request URL:', `${RAKUTEN_CONFIG.BASE_URL}?${params}`); // デバッグ用
 
         const response = await fetch(`${RAKUTEN_CONFIG.BASE_URL}?${params}`);
         
         if (!response.ok) {
-            throw new Error('API request failed');
+            const errorData = await response.json();
+            console.error('API Error Response:', errorData);
+            throw new Error(`API request failed: ${errorData.error_description || 'Unknown error'}`);
         }
 
         const data = await response.json();
+        
+        if (data.error) {
+            console.error('API Error:', data.error);
+            throw new Error(data.error_description || 'API error occurred');
+        }
+
+        console.log('API Response:', data); // デバッグ用
         return processSearchResults(data);
 
     } catch (error) {
-        // エラーログの出力を単純化
         console.error('検索エラー:', error);
         throw error;
     }
 }
 
-// 検索キーワード生成
+// 検索キーワード生成を改善
 function generateSearchKeywords(dimensions, furnitureType) {
     const { width, depth, height } = dimensions;
     let keywords = '';
@@ -61,8 +75,8 @@ function generateSearchKeywords(dimensions, furnitureType) {
             keywords = '家具';
     }
 
-    // サイズを含めたキーワードを生成
-    return `${keywords} ${width}cm ${depth}cm ${height}cm`;
+    // サイズを含めたキーワードを生成（スペースを適切に配置）
+    return `${keywords} ${width}×${depth}×${height}`; // ×記号を使用
 }
 
 // 楽天の家具ジャンルIDを取得
