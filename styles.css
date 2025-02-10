@@ -198,4 +198,22 @@ button:hover {
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 1rem;
     }
+}
+
+.error-message {
+    text-align: center;
+    color: #e53e3e;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.no-results {
+    text-align: center;
+    color: #718096;
+    padding: 2rem;
+    grid-column: 1 / -1;
 } 

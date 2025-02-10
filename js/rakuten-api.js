@@ -30,9 +30,8 @@ async function searchRakutenProducts(dimensions, furnitureType) {
         return processSearchResults(data);
 
     } catch (error) {
-        if (currentConfig.ENABLE_LOGGING) {
-            console.error('検索エラー:', error);
-        }
+        // エラーログの出力を単純化
+        console.error('検索エラー:', error);
         throw error;
     }
 }
