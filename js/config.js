@@ -1,16 +1,7 @@
 // 環境設定
 const CONFIG = {
-    production: {
-        API_ENDPOINT: 'https://api.your-domain.com',
-        ENABLE_LOGGING: false
-    },
-    development: {
-        API_ENDPOINT: window.location.origin,
-        ENABLE_LOGGING: true
-    }
+    RAKUTEN_APPLICATION_ID: 'e06e2a5afcf14b52139c1fb6c58e9dbc',
+    ENABLE_LOGGING: window.location.hostname === 'localhost'
 };
 
-// 開発環境と本番環境の判定（ブラウザ環境用）
-const ENV = window.location.hostname === 'localhost' ? 'development' : 'production';
-
-export const currentConfig = CONFIG[ENV]; 
+export default CONFIG; 

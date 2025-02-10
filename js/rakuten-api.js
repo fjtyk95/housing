@@ -1,8 +1,8 @@
-import { currentConfig } from './config.js';
+import CONFIG from './config.js';
 
 // 楽天APIの設定
 const RAKUTEN_CONFIG = {
-    APPLICATION_ID: 'e06e2a5afcf14b52139c1fb6c58e9dbc',
+    APPLICATION_ID: CONFIG.RAKUTEN_APPLICATION_ID,
     // AFFILIATE_ID: '/* ここにアフィリエイトIDを入力（任意） */',
     BASE_URL: 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706'
 };
